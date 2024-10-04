@@ -1,7 +1,7 @@
-import React, { createContext, useState } from "react";
-import CompA from "./Components/CompA";
-import CompB from "./Components/CompB";
-
+import React from "react";
+import UserContextProvider from "./Context/UserContextProvider";
+import Login from "./Components/Login";
+import Profile from "./Components/Profile";
 
 //export const myContext = createContext("");
 
@@ -16,6 +16,10 @@ const App = () => {
         <CompA />
         <CompB />
       </myContext.Provider> */}
+      <UserContextProvider>
+        <Login />
+        <Profile />
+      </UserContextProvider>
     </div>
   );
 };

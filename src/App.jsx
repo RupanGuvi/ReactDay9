@@ -1,9 +1,12 @@
-import React from "react";
+import React, { createContext, useState } from "react";
+import Cart from "./Components/Cart";
 // import UserContextProvider from "./Context/UserContextProvider";
 // import Login from "./Components/Login";
 // import Profile from "./Components/Profile";
 
 //export const myContext = createContext("");
+
+export const productContext = createContext('');
 
 const App = () => {
   //const [value, setValue] = useState(0);
@@ -99,6 +102,8 @@ const App = () => {
     },
   ];
 
+  const [data,setData] = useState(products);
+
   return (
     <div>
       {/* <h1>The value in App Component: {value}</h1>
@@ -111,6 +116,11 @@ const App = () => {
         <Login />
         <Profile />
       </UserContextProvider> */}
+          
+        <productContext.Provider value={[data,setData]}>
+          <Cart />
+        </productContext.Provider>
+
     </div>
   );
 };
